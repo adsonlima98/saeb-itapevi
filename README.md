@@ -2,7 +2,7 @@
 
 Painel com os resultados do **SAEB 2025** na **Bonificação por Resultados (BR) 2025, 2ª etapa**, para as 57 escolas da **Unidade Regional de Ensino de Itapevi** (SEDUC-SP).
 
-**Acesse o painel:** https://adsonlima98.github.io/saeb-itapevi/
+**Acesse o painel:** publicado na Vercel (link na seção *About* do repositório).
 
 ## O que o painel mostra
 
@@ -39,7 +39,7 @@ Todos os demais números (notas, metas, ICM, gatilhos, pisos) são os da resolu�
 
 ## Tecnologia
 
-Página estática em um único arquivo (`index.html`), com HTML, CSS e JavaScript ([D3.js](https://d3js.org/)) e os dados embutidos. Não precisa de servidor nem de internet depois de carregada.
+Página estática em um único arquivo (`index.html`), com HTML, CSS e JavaScript ([D3.js](https://d3js.org/)) e os dados embutidos. Hospedada na [Vercel](https://vercel.com/), que publica de novo a cada alteração na branch `main`.
 
 ---
 
