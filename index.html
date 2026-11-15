@@ -11,58 +11,61 @@
   --cds-dur-slow: 400ms;
   --cds-ease-out: cubic-bezier(.2,.8,.2,1);
 }
-html, body { margin: 0; background: #e9e7f3; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; background: #f1f1f4; }
 body { padding: clamp(8px, 2vw, 24px); }
 #dash-root { max-width: 1400px; margin: 0 auto; }
 .dash-select {
   appearance: none; -webkit-appearance: none;
   font: inherit; padding: 8px 34px 8px 14px; cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5l3 3 3-3' fill='none' stroke='%23827e9a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5l3 3 3-3' fill='none' stroke='%237d8092' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 12px center;
 }
-.dash-select:focus-visible, .br-btn:focus-visible { outline: 2px solid #7c5cff; outline-offset: 2px; }
-.br-rodape { text-align: center; font-size: 12px; color: #827e9a; margin: 18px 0 4px; font-family: var(--font-anthropic-sans); }
+.dash-select:focus-visible, .br-btn:focus-visible { outline: 2px solid #6b7bff; outline-offset: 2px; }
+.br-rodape { text-align: center; font-size: 12px; color: #7d8092; margin: 18px 0 4px; font-family: var(--font-anthropic-sans); }
 
 /* Tema claro inspirado no Finity: roxo principal, verde-água e rosa de apoio, laranja para a Meta Ouro */
 #dash-root { --dash-gutter: 0; }
 .br {
-  --bg: #dedbee;
+  --bg: #f1f1f4;
   --card: #ffffff;
-  --soft: #ecebf7;
-  --soft-2: #dcd7f5;
-  --ink: #1b1830;
-  --ink-2: #45415e;
-  --muted: #6b6784;
-  --line: #d2cee6;
-  --roxo: #7c5cff;
-  --roxo-2: #9b82ff;
-  --roxo-esc: #5b3fd9;
-  --agua: #3cc9bd;
+  --soft: #f5f5f7;
+  --soft-2: #e9eafc;
+  --ink: #171a2b;
+  --ink-2: #474a5e;
+  --muted: #7d8092;
+  --line: #e7e7ec;
+  --navy: #1b1f33;
+  --roxo: #6b7bff;
+  --roxo-2: #8f9bff;
+  --roxo-esc: #4a59d6;
+  --agua: #a6ee3c;
   --rosa: #e57ad6;
   --laranja: #ff8a3d;
-  --up: #14a37f;
+  --up: #23914f;
   --down: #e5484d;
-  --st-dia: #7c5cff;
+  --st-dia: #6b7bff;
   --st-ouro: #f59a2f;
-  --st-par: #3cc9bd;
+  --st-par: #93d82b;
   --st-zero: #f07b8c;
   --st-gat: #e57ad6;
-  --st-sem: #b9b6c9;
-  --r-lg: 26px;
-  --r-md: 18px;
-  --shadow: 0 1px 2px rgba(40, 30, 90, .08), 0 8px 24px rgba(60, 40, 140, .10);
+  --st-sem: #c3c4cd;
+  --r-lg: 30px;
+  --r-md: 22px;
+  --shadow: 0 1px 2px rgba(20, 22, 40, .04), 0 12px 32px rgba(20, 22, 40, .06);
   --t-branco: #ffffff;
-  --t-claro: #efedf9;
-  --t-medio: #e0ddf0;
-  --t-escuro: #cdc9e3;
-  --borda: #c4bfdc;
+  --t-claro: #f5f5f7;
+  --t-medio: #ececf0;
+  --t-escuro: #e3e3e9;
+  --borda: #e3e3e9;
+  --listra: repeating-linear-gradient(135deg, #c9cad3 0 2px, #eeeef2 2px 6px);
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-anthropic-sans);
   padding: clamp(14px, 3vw, 30px);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   color-scheme: light;
   border-radius: 28px;
 }
@@ -70,99 +73,50 @@ body { padding: clamp(8px, 2vw, 24px); }
 .br [hidden] { display: none !important; }
 
 /* cabeçalho */
-.br .br-head { display: flex; flex-direction: column; gap: 8px; }
-.br .br-tag {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--card);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 5px 14px 5px 6px;
-  font-size: 12.5px;
-  font-weight: 600;
-  box-shadow: var(--shadow);
-}
-.br .br-tag::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--roxo-2), var(--roxo-esc));
-}
-.br .br-title { font-size: clamp(22px, 3.2vw, 30px); font-weight: 700; margin: 0; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+.br .br-head { display: flex; flex-direction: column; gap: 10px; }
+.br .br-topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 18px; }
+.br .br-tag { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font-size: 15px; font-weight: 700; letter-spacing: -.01em; }
+.br .br-tag::before { content: ""; width: 22px; height: 22px; border-radius: 8px; background: linear-gradient(135deg, var(--roxo) 0 50%, var(--agua) 50% 100%); }
+.br .br-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.br .br-tab { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--ink-2); background: #e6e6eb; border-radius: 999px; padding: 8px 16px; }
+.br .br-tab:hover { background: #dcdce3; }
+.br .br-tab.is-on { background: var(--navy); color: #fff; }
+.br .br-title { font-size: clamp(26px, 4vw, 40px); font-weight: 600; margin: 6px 0 0; line-height: 1.1; letter-spacing: -.03em; color: var(--ink); }
+.br .br-title span { color: #a9abb8; }
 .br .br-lede { font-size: 15px; margin: 0; max-width: 78ch; line-height: 1.55; color: var(--ink-2); }
-.br .br-src { font-size: 12.5px; color: var(--muted); margin: 0; line-height: 1.5; max-width: 90ch; }
+.br .br-src { font-size: 12.5px; color: var(--muted); margin: 0; line-height: 1.5; max-width: 100ch; }
 
-/* indicadores em pílula */
-.br .br-kpis { display: flex; flex-wrap: wrap; gap: 8px; }
-.br .br-kpi {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: var(--card);
-  border: 1px solid var(--borda);
-  box-shadow: 0 1px 2px rgba(40, 30, 90, .08);
-  border-radius: 999px;
-  padding: 7px 14px;
-  min-width: 0;
-}
-.br .br-ico { width: 8px; height: 8px; border-radius: 50%; flex: none; }
-.br .br-kpi-v { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1; }
-.br .br-kpi-l { font-size: 12px; color: var(--muted); line-height: 1.2; }
+/* indicadores: número grande + selo */
+.br .br-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 760px) { .br .br-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.br .br-kpi { background: var(--card); border-radius: var(--r-md); box-shadow: var(--shadow); padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.br .br-kpi-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; min-height: 26px; }
+.br .br-kpi-l { font-size: 13.5px; font-weight: 500; color: var(--ink); line-height: 1.2; }
+.br .br-badge { flex: none; font-size: 10.5px; font-weight: 600; border: 1px solid #cfd0d8; color: var(--ink-2); border-radius: 999px; padding: 2px 8px; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; }
+.br .br-ico { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.br .br-kpi-v { font-size: 34px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1.05; margin-top: 6px; }
+.br .br-kpi-s { font-size: 11.5px; color: var(--muted); line-height: 1.3; }
 
 /* filtros */
-.br .br-filtros {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-  align-items: flex-end;
-  background: var(--t-escuro);
-  border: 1px solid var(--borda);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow);
-  padding: 14px 18px;
-}
-.br .br-f { display: flex; flex-direction: column; gap: 5px; font-size: 12px; color: var(--ink-2); font-weight: 500; flex: 1 1 150px; min-width: 0; }
-.br .br-f .dash-select {
-  width: 100%;
-  background-color: #fff;
-  color: var(--ink);
-  border: 1px solid var(--borda);
-  border-radius: 999px;
-  font-size: 13px;
-}
-.br .br-btn {
-  font: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
-  background-color: var(--roxo);
-  border: 0;
-  border-radius: 999px;
-  padding: 9px 18px;
-  cursor: pointer;
-  min-height: 36px;
-  box-shadow: 0 6px 16px rgba(124, 92, 255, .28);
-}
-.br .br-btn:hover { background-color: var(--roxo-esc); }
+.br .br-filtros { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: flex-end; background: var(--card); border-radius: var(--r-md); box-shadow: var(--shadow); padding: 14px 18px; }
+.br .br-f { display: flex; flex-direction: column; gap: 5px; font-size: 12px; color: var(--muted); font-weight: 500; flex: 1 1 150px; min-width: 0; }
+.br .br-f .dash-select { width: 100%; background-color: var(--soft); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; font-size: 13px; }
+.br .br-btn { font: inherit; font-size: 13px; font-weight: 600; color: #fff; background-color: var(--navy); border: 0; border-radius: 999px; padding: 9px 18px; cursor: pointer; min-height: 36px; }
+.br .br-btn:hover { background-color: #2c3250; }
 
 /* cards */
 .br .br-card {
   background: var(--card);
   border-radius: var(--r-lg);
   box-shadow: var(--shadow);
-  border: 1px solid var(--borda);
-  padding: clamp(16px, 2.4vw, 24px);
+  padding: clamp(18px, 2.4vw, 26px);
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 0;
 }
 .br .br-card-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 12px; }
-.br .br-h2 { font-size: 19px; font-weight: 600; margin: 0; letter-spacing: -.01em; color: var(--ink); }
+.br .br-h2 { font-size: 20px; font-weight: 500; margin: 0; letter-spacing: -.01em; color: var(--ink); }
 .br .br-h3 { font-size: 13.5px; font-weight: 600; margin: 0 0 8px; color: var(--ink); }
 .br .br-sub { font-size: 12.5px; color: var(--muted); }
 .br .br-note, .br .br-count { font-size: 12.5px; color: var(--muted); margin: 0; line-height: 1.5; }
@@ -180,42 +134,48 @@ body { padding: clamp(8px, 2vw, 24px); }
 }
 
 /* cards de evolução por disciplina */
-.br .br-evo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 14px; }
-.br .ev-card { --ev-track: rgba(70, 55, 150, .18); border: 1px solid var(--borda); border-top: 4px solid var(--roxo); border-radius: var(--r-md); padding: 16px; display: flex; flex-direction: column; gap: 12px; background: var(--t-claro); min-width: 0; }
-.br .ev-card[data-serie] { background: var(--t-branco); }
+.br .br-evo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; }
+.br .ev-card { border-top: 4px solid var(--roxo); border-radius: var(--r-md); padding: 16px; display: flex; flex-direction: column; gap: 12px; background: var(--soft); min-width: 0; }
 .br .ev-card[data-disc="mat"] { border-top-color: var(--agua); }
-.br .ev-card.is-ok { border-color: #8fd9cd; border-top-color: var(--up); background: #d9f4ee; }
+.br .ev-card.is-ok { background: #f0fbdc; }
 .br .ev-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-.br .ev-t { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.br .ev-t { font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.3; }
 .br .ev-s { font-size: 11.5px; color: var(--muted); }
-.br .ev-chip { border-radius: 999px; padding: 3px 9px; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.br .ev-chip.up { background: #c4eee2; color: #0b7d60; }
-.br .ev-chip.down { background: #fbd5d8; color: #c0262c; }
-.br .ev-chip.flat { background: rgba(70, 55, 150, .14); color: var(--ink-2); }
+.br .ev-chip { border-radius: 999px; padding: 2px 9px; font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; border: 1px solid #cfd0d8; background: #fff; }
+.br .ev-chip.up { color: var(--up); border-color: #b9e3c6; }
+.br .ev-chip.down { color: #c0262c; border-color: #f3c1c4; }
+.br .ev-chip.flat { color: var(--ink-2); }
 .br .ev-nums { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
 .br .ev-from { font-size: 15px; color: var(--muted); }
 .br .ev-arrow { color: var(--muted); }
-.br .ev-to { font-size: 30px; font-weight: 700; letter-spacing: -.02em; color: var(--ink); line-height: 1; }
-.br .ev-bar { position: relative; height: 34px; margin: 4px 2px 6px; }
-.br .ev-track { position: absolute; left: 0; right: 0; top: 15px; height: 6px; border-radius: 999px; background: var(--ev-track); }
-.br .ev-fill { position: absolute; top: 15px; height: 6px; border-radius: 999px; }
-.br .ev-fill.up { background: linear-gradient(90deg, var(--agua), var(--up)); }
-.br .ev-fill.down { background: var(--down); }
-.br .ev-mk { position: absolute; top: 9px; width: 3px; height: 18px; border-radius: 2px; transform: translateX(-50%); }
-.br .ev-mk.ouro { background: var(--st-ouro); }
-.br .ev-mk.dia { background: var(--st-dia); }
-.br .ev-mk.base { background: #a6a2bb; width: 2px; height: 12px; top: 12px; }
-.br .ev-lbl { position: absolute; font-size: 10.5px; font-weight: 600; transform: translateX(-50%); white-space: nowrap; }
-.br .ev-lbl.ouro { top: -6px; color: #c46a10; }
-.br .ev-lbl.dia { top: 28px; color: var(--st-dia); }
-.br .ev-dot { position: absolute; top: 11px; width: 14px; height: 14px; border-radius: 50%; transform: translateX(-50%); border: 3px solid #fff; box-shadow: 0 0 0 1px rgba(124, 92, 255, .35); background: var(--roxo); }
-.br .ev-rows { display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; }
+.br .ev-to { font-size: 34px; font-weight: 600; letter-spacing: -.03em; color: var(--ink); line-height: 1; }
+.br .ev-chart { position: relative; height: 150px; margin-top: 2px; }
+.br .ev-line { position: absolute; left: 0; right: 0; height: 0; border-top: 2px dashed; z-index: 0; }
+.br .ev-line span { position: absolute; right: 0; bottom: 3px; font-size: 10.5px; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.br .ev-line.ouro { border-color: var(--st-ouro); }
+.br .ev-line.ouro span { color: #b3620a; }
+.br .ev-line.dia { border-color: var(--roxo-2); }
+.br .ev-line.dia span { color: var(--roxo-esc); }
+.br .ev-bars { position: absolute; left: 0; right: 92px; top: 0; bottom: 0; display: flex; justify-content: center; align-items: flex-end; gap: 12px; z-index: 1; }
+.br .ev-col { width: 46px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
+.br .ev-b { border-radius: 12px 12px 5px 5px; display: flex; justify-content: center; padding-top: 7px; font-size: 11.5px; font-weight: 700; font-variant-numeric: tabular-nums; min-height: 26px; }
+.br .ev-b.base { background: var(--agua); color: #2c4a00; }
+.br .ev-b.nota { background: var(--roxo); color: #fff; }
+.br .ev-b.nota.tem-falta { border-radius: 0 0 5px 5px; }
+.br .ev-falta { background: var(--listra); border-radius: 12px 12px 0 0; }
+.br .ev-xl { display: flex; justify-content: center; gap: 12px; margin-right: 92px; font-size: 11px; color: var(--muted); }
+.br .ev-xl span { width: 46px; text-align: center; }
+.br .ev-rows { display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; margin: 0; }
 .br .ev-row { display: flex; justify-content: space-between; gap: 8px; }
 .br .ev-row dt { color: var(--muted); }
 .br .ev-row dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
 .br .ev-row dd.ok { color: var(--up); }
-.br .ev-foot { font-size: 12px; color: var(--ink-2); border-top: 1px dashed var(--borda); padding-top: 8px; }
+.br .ev-foot { font-size: 12px; color: var(--ink-2); background: #fff; border-radius: 14px; padding: 8px 12px; }
 .br .ev-empty { font-size: 13px; color: var(--muted); padding: 10px 0; }
+.br .lg { display: inline-block; width: 12px; height: 10px; border-radius: 3px; margin: 0 4px 0 8px; vertical-align: -1px; }
+.br .lg-base { background: var(--agua); }
+.br .lg-nota { background: var(--roxo); }
+.br .lg-falta { background: var(--listra); }
 
 /* legendas */
 .br .br-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: 12px; color: var(--muted); margin: 0; }
@@ -241,14 +201,14 @@ body { padding: clamp(8px, 2vw, 24px); }
   cursor: pointer;
 }
 .br .br-row:hover, .br .br-row:focus-visible { background: var(--t-medio); outline: none; }
-.br .br-row.is-sel { background: #d3cbf7; box-shadow: inset 3px 0 0 var(--roxo); }
+.br .br-row.is-sel { background: var(--soft-2); box-shadow: inset 3px 0 0 var(--roxo); }
 .br .br-row.is-dim { opacity: .4; }
 .br .br-row.is-mine .br-rlabel { font-weight: 700; }
 .br .br-rlabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink); }
-.br .br-track { position: relative; display: flex; height: 12px; background: #d4d0ea; border-radius: 999px; overflow: hidden; }
+.br .br-track { position: relative; display: flex; height: 14px; background: var(--listra); border-radius: 999px; overflow: hidden; }
 .br .br-track.is-end::after { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 2px; background: var(--st-ouro); }
 .br .br-seg { height: 100%; }
-.br .br-seg.ink { background: linear-gradient(90deg, var(--roxo-2), var(--roxo)); border-radius: 999px; }
+.br .br-seg.ink { background: var(--roxo); border-radius: 999px; }
 .br .br-seg.gat { background: var(--st-gat); border-radius: 999px; opacity: .55; }
 .br .br-rval { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ink); }
 .br .br-axis { display: grid; grid-template-columns: minmax(100px, 40%) 1fr 44px; gap: 10px; padding: 0 10px 4px; color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
@@ -260,22 +220,22 @@ body { padding: clamp(8px, 2vw, 24px); }
   position: absolute;
   z-index: 5;
   pointer-events: none;
-  background: var(--roxo-esc);
+  background: var(--navy);
   color: #fff;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 10px 12px;
   font-size: 12px;
   max-width: 290px;
   line-height: 1.5;
   font-variant-numeric: tabular-nums;
-  box-shadow: 0 10px 30px rgba(91, 63, 217, .3);
+  box-shadow: 0 10px 30px rgba(20, 22, 40, .25);
 }
 .br .br-tipbox .t-h { font-weight: 700; margin-bottom: 2px; }
-.br .br-tipbox .t-m { color: #ddd5ff; }
+.br .br-tipbox .t-m { color: #c9cce0; }
 
 /* painel da escola */
 .br .br-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-.br .br-group { border: 1px solid var(--borda); border-top: 4px solid var(--roxo); border-radius: var(--r-md); padding: 14px; background: var(--t-branco); }
+.br .br-group { border-top: 4px solid var(--roxo); border-radius: var(--r-md); padding: 14px 16px; background: var(--soft); }
 .br #grp-gatilhos { border-top-color: var(--rosa); }
 .br #grp-saeb { border-top-color: var(--agua); }
 .br #grp-icm { border-top-color: var(--roxo-esc); }
@@ -283,21 +243,21 @@ body { padding: clamp(8px, 2vw, 24px); }
 .br .br-kv { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; }
 .br .br-kv dt { color: var(--muted); }
 .br .br-kv dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
-.br .br-big { font-size: 28px; font-weight: 700; letter-spacing: -.02em; }
+.br .br-big { font-size: 34px; font-weight: 600; letter-spacing: -.02em; }
 .br .is-bad { color: var(--down) !important; }
 .br .is-good { color: var(--up) !important; }
 .br #painel-escola { margin-bottom: 4px; }
 
 /* tabelas */
-.br .br-tablewrap { overflow: auto; max-height: 620px; border: 1px solid var(--borda); border-radius: var(--r-md); background: #fff; }
+.br .br-tablewrap { overflow: auto; max-height: 620px; border: 1px solid var(--line); border-radius: var(--r-md); background: #fff; }
 .br .br-tablewrap-short { max-height: 420px; }
 .br .br-tbl { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 12.5px; font-variant-numeric: tabular-nums; color: var(--ink); }
 .br .br-tbl th, .br .br-tbl td { padding: 9px 12px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; vertical-align: middle; }
-.br .br-tbl thead th { position: sticky; top: 0; background: var(--t-escuro); z-index: 2; font-weight: 700; color: var(--ink); font-size: 11.5px; letter-spacing: .02em; }
+.br .br-tbl thead th { position: sticky; top: 0; background: var(--t-medio); z-index: 2; font-weight: 600; color: var(--ink-2); font-size: 11.5px; letter-spacing: .02em; }
 .br .br-tbl .r { text-align: right; }
-.br .br-tbl tbody tr:nth-child(even) { background: var(--t-claro); }
-.br .br-tbl tbody tr:hover { background: #ddd8f6; }
-.br .br-tbl tbody tr.is-sel { background: #d3cbf7; }
+.br .br-tbl tbody tr:nth-child(even) { background: #fafafb; }
+.br .br-tbl tbody tr:hover { background: var(--soft-2); }
+.br .br-tbl tbody tr.is-sel { background: var(--soft-2); }
 .br .br-tbl tbody tr.is-sel td:first-child { box-shadow: inset 3px 0 0 var(--roxo); }
 .br .br-tbl tbody tr.is-mine td:first-child::before { content: "★ "; color: var(--laranja); }
 .br #tabela-escolas tbody tr { cursor: pointer; }
@@ -320,7 +280,7 @@ body { padding: clamp(8px, 2vw, 24px); }
 .br .mt { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px; border-radius: 12px; padding: 5px 10px; min-width: 82px; line-height: 1.15; font-variant-numeric: tabular-nums; }
 .br .mt-n { font-weight: 700; font-size: 13px; }
 .br .mt-l { font-size: 10.5px; font-weight: 600; }
-.br .mt-dia { background: linear-gradient(135deg, #8f74ff, #6a4cf0); color: #fff; box-shadow: 0 4px 12px rgba(124, 92, 255, .25); }
+.br .mt-dia { background: var(--roxo); color: #fff; }
 .br .mt-ouro { background: #ffe6c8; color: #a04f00; box-shadow: inset 0 0 0 1px #ffc88a; }
 .br .mt-no { background: var(--t-medio); color: var(--ink-2); }
 .br .mt-no .mt-l { color: var(--muted); font-weight: 500; }
@@ -330,8 +290,8 @@ body { padding: clamp(8px, 2vw, 24px); }
 /* régua por linha */
 .br td.cell-regua { position: relative; min-width: 150px; padding-top: 3px; padding-bottom: 3px; }
 .br td.cell-regua svg { display: block; width: 150px; height: 22px; overflow: visible; }
-.br .rg-track { stroke: #cdc8e3; stroke-width: 5; stroke-linecap: round; }
-.br .rg-base { stroke: #a6a2bb; stroke-width: 2; }
+.br .rg-track { stroke: #dcdde4; stroke-width: 5; stroke-linecap: round; }
+.br .rg-base { stroke: #9a9cab; stroke-width: 2; }
 .br .rg-ouro { stroke: var(--st-ouro); stroke-width: 3; }
 .br .rg-dia { stroke: var(--st-dia); stroke-width: 3; }
 .br .rg-piso { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 2 2; }
@@ -342,17 +302,17 @@ body { padding: clamp(8px, 2vw, 24px); }
   left: 0;
   bottom: 100%;
   z-index: 4;
-  background: var(--roxo-esc);
+  background: var(--navy);
   color: #fff;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 10px 12px;
   white-space: nowrap;
   line-height: 1.5;
-  box-shadow: 0 10px 30px rgba(91, 63, 217, .3);
+  box-shadow: 0 10px 30px rgba(20, 22, 40, .25);
 }
 .br td.cell-regua:hover .br-rtip, .br td.cell-regua:focus .br-rtip { display: block; }
 .br .br-mk { display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 10px; vertical-align: -1px; }
-.br .mk-base { width: 2px; background: #a6a2bb; }
+.br .mk-base { width: 2px; background: #9a9cab; }
 .br .mk-ouro { width: 3px; background: var(--st-ouro); }
 .br .mk-dia { width: 3px; background: var(--st-dia); }
 .br .mk-piso { width: 0; border-left: 2px dashed var(--ink-2); }
@@ -363,7 +323,7 @@ body { padding: clamp(8px, 2vw, 24px); }
 .br .br-inline .br-note { flex: 1 1 320px; }
 .br .br-f-inline { flex: 0 1 240px; }
 
-.br .br-details { font-size: 12.5px; color: var(--ink-2); background: var(--t-claro); border: 1px solid var(--borda); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: 16px 22px; }
+.br .br-details { font-size: 12.5px; color: var(--ink-2); background: var(--card); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: 16px 22px; }
 .br .br-details summary { cursor: pointer; color: var(--ink); font-size: 14px; font-weight: 600; }
 .br .br-details ul { padding-left: 18px; line-height: 1.6; }
 
@@ -378,20 +338,29 @@ body { padding: clamp(8px, 2vw, 24px); }
 <div class="br" lang="pt-BR">
 
 <header class="br-head" id="topo">
-  <span class="br-tag">BR 2025 · 2ª etapa · SAEB</span>
-  <h1 class="br-title" id="titulo">SAEB 2025 · URE Itapevi</h1>
+  <div class="br-topbar">
+    <span class="br-tag">BR 2025 · 2ª etapa · SAEB</span>
+    <nav class="br-tabs" aria-label="Seções">
+      <a class="br-tab is-on" href="#sec-evolucao">Evolução</a>
+      <a class="br-tab" href="#sec-tabela-escolas">Escolas</a>
+      <a class="br-tab" href="#sec-escolas">ICM</a>
+      <a class="br-tab" href="#sec-detalhe">Disciplinas</a>
+      <a class="br-tab" href="#sec-pisos">Piso</a>
+    </nav>
+  </div>
+  <h1 class="br-title" id="titulo">SAEB 2025 <span>URE Itapevi</span></h1>
   <p class="br-src">Fonte: Resolução SEDUC nº 106, de 11/11/2026 (DOE de 12/11/2026), Nota Técnica e anexos Disciplina-Série e Escola. Só o componente SAEB (9º ano EF e 3ª série EM, Língua Portuguesa e Matemática). ★ marca a EE Américo Valentin Christianini.</p>
 </header>
 
 <section class="br-kpis" id="indicadores" aria-label="Indicadores do SAEB na URE">
-  <div class="br-kpi" id="kpi-escolas"><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="escolas" data-row="0">—</span><span class="br-kpi-l">escolas na URE</span></div>
-  <div class="br-kpi" id="kpi-ouro"><span class="br-ico" style="background:#f59a2f"></span><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="saeb_ouro" data-row="0">—</span><span class="br-kpi-l">com ICM SAEB 0,50 (Meta Ouro da escola)</span></div>
-  <div class="br-kpi" id="kpi-parcial"><span class="br-ico" style="background:#3cc9bd"></span><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="saeb_parcial" data-row="0">—</span><span class="br-kpi-l">com ICM parcial</span></div>
-  <div class="br-kpi" id="kpi-zero"><span class="br-ico" style="background:#f07b8c"></span><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="saeb_zero" data-row="0">—</span><span class="br-kpi-l">com ICM zero</span></div>
-  <div class="br-kpi" id="kpi-gatilho"><span class="br-ico" style="background:#e57ad6"></span><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="saeb_gatilho" data-row="0">—</span><span class="br-kpi-l">sem cumprir um gatilho</span></div>
-  <div class="br-kpi" id="kpi-dia-escolas"><span class="br-ico" style="background:#7c5cff"></span><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="escolas_diamante" data-row="0">—</span><span class="br-kpi-l">com disciplina na Meta Diamante</span></div>
-  <div class="br-kpi" id="kpi-dia"><span class="br-ico" style="background:#7c5cff"></span><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="linhas_diamante" data-row="0">—</span><span class="br-kpi-l">disciplinas-série na Meta Diamante</span></div>
-  <div class="br-kpi" id="kpi-ouro-disc"><span class="br-ico" style="background:#f59a2f"></span><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="linhas_ouro" data-row="0">—</span><span class="br-kpi-l">disciplinas-série na Meta Ouro</span></div>
+  <div class="br-kpi" id="kpi-escolas"><div class="br-kpi-top"><span class="br-kpi-l">Escolas</span></div><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="escolas" data-row="0">—</span><span class="br-kpi-s">na URE Itapevi</span></div>
+  <div class="br-kpi" id="kpi-ouro"><div class="br-kpi-top"><span class="br-kpi-l">Meta Ouro</span><span class="br-badge"><span class="br-ico" style="background:#f59a2f"></span>ICM 0,50</span></div><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="saeb_ouro" data-row="0">—</span><span class="br-kpi-s">escolas com ICM SAEB 0,50</span></div>
+  <div class="br-kpi" id="kpi-parcial"><div class="br-kpi-top"><span class="br-kpi-l">ICM parcial</span><span class="br-badge"><span class="br-ico" style="background:#93d82b"></span>parcial</span></div><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="saeb_parcial" data-row="0">—</span><span class="br-kpi-s">escolas entre 0 e 0,50</span></div>
+  <div class="br-kpi" id="kpi-zero"><div class="br-kpi-top"><span class="br-kpi-l">ICM zero</span><span class="br-badge"><span class="br-ico" style="background:#f07b8c"></span>zero</span></div><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="saeb_zero" data-row="0">—</span><span class="br-kpi-s">escolas sem ICM SAEB</span></div>
+  <div class="br-kpi" id="kpi-gatilho"><div class="br-kpi-top"><span class="br-kpi-l">Gatilho</span><span class="br-badge"><span class="br-ico" style="background:#e57ad6"></span>IFA / participação</span></div><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="saeb_gatilho" data-row="0">—</span><span class="br-kpi-s">escolas sem cumprir um gatilho</span></div>
+  <div class="br-kpi" id="kpi-dia-escolas"><div class="br-kpi-top"><span class="br-kpi-l">Diamante</span><span class="br-badge"><span class="br-ico" style="background:#6b7bff"></span>escolas</span></div><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="escolas_diamante" data-row="0">—</span><span class="br-kpi-s">escolas com disciplina na Meta Diamante</span></div>
+  <div class="br-kpi" id="kpi-dia"><div class="br-kpi-top"><span class="br-kpi-l">Diamante</span><span class="br-badge"><span class="br-ico" style="background:#6b7bff"></span>disciplinas</span></div><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="linhas_diamante" data-row="0">—</span><span class="br-kpi-s">disciplinas-série na Meta Diamante</span></div>
+  <div class="br-kpi" id="kpi-ouro-disc"><div class="br-kpi-top"><span class="br-kpi-l">Ouro</span><span class="br-badge"><span class="br-ico" style="background:#f59a2f"></span>disciplinas</span></div><span class="br-kpi-v" data-draw="num" data-source="resumo_saeb" data-field="linhas_ouro" data-row="0">—</span><span class="br-kpi-s">disciplinas-série na Meta Ouro</span></div>
 </section>
 
 <section class="br-filtros" id="filtros" aria-label="Filtros">
@@ -432,7 +401,7 @@ body { padding: clamp(8px, 2vw, 24px); }
     <h2 class="br-h2" id="h-evolucao">Evolução por disciplina e quanto faltou para as metas</h2>
     <span class="br-pill" data-draw="evo_escopo">—</span>
   </div>
-  <p class="br-note">NOTA FINAL 23/24 → NOTA FINAL 2025, com a diferença em destaque. Na barra: <span class="br-mk mk-base"></span>nota de referência, <span class="br-mk mk-ouro"></span>Meta Ouro, <span class="br-mk mk-dia"></span>Meta Diamante e <span class="br-mk mk-nota"></span>nota 2025. Sem escola escolhida, os valores são a média simples das escolas da URE.</p>
+  <p class="br-note">NOTA FINAL 23/24 → NOTA FINAL 2025, com a diferença em destaque. Nas barras: <span class="lg lg-base"></span>23/24 <span class="lg lg-nota"></span>2025 <span class="lg lg-falta"></span>quanto faltou para a próxima meta. As linhas tracejadas são a Meta Ouro e a Meta Diamante. A escala das barras é ampliada para destacar as diferenças. Sem escola escolhida, os valores são a média simples das escolas da URE.</p>
   <div class="br-panel" id="painel-escola">
     <div class="br-group" id="grp-gatilhos">
       <h3 class="br-h3">Gatilhos</h3>
@@ -490,7 +459,7 @@ body { padding: clamp(8px, 2vw, 24px); }
 
 <section class="br-card" id="sec-escolas">
   <div class="br-card-head"><h2 class="br-h2" id="h-escolas">ICM SAEB por escola</h2><span class="br-pill" data-draw="cont_escolas">—</span></div>
-  <p class="br-note">ICM SAEB da escola, como está no Anexo Escola (0 a 0,50). A linha dourada no fim da barra é a Meta Ouro (0,50). Em lilás, o IC de escolas zeradas por gatilho. Clique numa escola para filtrar a página.</p>
+  <p class="br-note">ICM SAEB da escola, como está no Anexo Escola (0 a 0,50). O trecho listrado é o que faltou até a Meta Ouro (0,50), marcada pela linha dourada no fim da barra. Em rosa, o IC de escolas zeradas por gatilho. Clique numa escola para filtrar a página.</p>
   <p class="br-legend"><span><span class="br-st st-ink"></span>ICM SAEB</span><span><span class="br-st st-gat"></span>IC zerado por gatilho</span></p>
   <div class="br-chart br-scroll" id="chart-escolas" data-draw="chart_escolas" data-source="escolas">—</div>
 </section>
@@ -877,22 +846,24 @@ function cardEvo(raiz, c) {
   nums.append('span').attr('class', 'ev-arrow').text('→');
   nums.append('span').attr('class', 'ev-to').attr('data-source', c.srcBase).attr('data-field', c.fNota).attr('data-where', c.whereBase).text(br(c.nota, 2));
 
-  // barra: referência → 2025, com marcas das metas
+  // barras: 23/24 e 2025, com o trecho listrado até a próxima meta e linhas das metas
   const vals = [c.base, c.nota, c.ouro, c.dia];
   const lo = Math.min(...vals), hi = Math.max(...vals);
-  const pad = Math.max(hi - lo, 0.3) * 0.1;
-  const x = (v) => ((v - (lo - pad)) / ((hi + pad) - (lo - pad))) * 100;
-  const bar = card.append('div').attr('class', 'ev-bar').attr('role', 'img')
+  const faixa = Math.max(hi - lo, 0.3);
+  const chao = lo - faixa * 0.9, teto = hi + faixa * 0.14;
+  const y = (v) => ((v - chao) / (teto - chao)) * 100;
+  const alvo = c.nota < c.ouro - 0.004 ? c.ouro : (c.nota < c.dia - 0.004 ? c.dia : null);
+  const ch = card.append('div').attr('class', 'ev-chart').attr('role', 'img')
     .attr('aria-label', 'De ' + br(c.base, 2) + ' para ' + br(c.nota, 2) + '; Meta Ouro ' + br(c.ouro, 2) + ', Meta Diamante ' + br(c.dia, 2));
-  bar.append('div').attr('class', 'ev-track');
-  const a = Math.min(x(c.base), x(c.nota)), b = Math.max(x(c.base), x(c.nota));
-  bar.append('div').attr('class', 'ev-fill ' + (c.nota >= c.base ? 'up' : 'down')).style('left', a + '%').style('width', Math.max(b - a, 0.6) + '%');
-  bar.append('div').attr('class', 'ev-mk base').style('left', x(c.base) + '%');
-  bar.append('div').attr('class', 'ev-mk ouro').style('left', x(c.ouro) + '%');
-  bar.append('div').attr('class', 'ev-mk dia').style('left', x(c.dia) + '%');
-  bar.append('div').attr('class', 'ev-lbl ouro').style('left', x(c.ouro) + '%').text('Ouro');
-  bar.append('div').attr('class', 'ev-lbl dia').style('left', x(c.dia) + '%').text('Diamante');
-  bar.append('div').attr('class', 'ev-dot').style('left', x(c.nota) + '%');
+  ch.append('div').attr('class', 'ev-line ouro').style('bottom', y(c.ouro) + '%').append('span').text('Ouro ' + br(c.ouro, 2));
+  ch.append('div').attr('class', 'ev-line dia').style('bottom', y(c.dia) + '%').append('span').text('Diamante ' + br(c.dia, 2));
+  const bars = ch.append('div').attr('class', 'ev-bars');
+  bars.append('div').attr('class', 'ev-col').append('div').attr('class', 'ev-b base').style('height', y(c.base) + '%').text(br(c.base, 2));
+  const col = bars.append('div').attr('class', 'ev-col');
+  if (alvo !== null) col.append('div').attr('class', 'ev-falta').style('height', (y(alvo) - y(c.nota)) + '%');
+  col.append('div').attr('class', 'ev-b nota').classed('tem-falta', alvo !== null).style('height', y(c.nota) + '%').text(br(c.nota, 2));
+  const xl = card.append('div').attr('class', 'ev-xl').attr('aria-hidden', 'true');
+  xl.append('span').text('23/24'); xl.append('span').text('2025');
 
   const dl = card.append('dl').attr('class', 'ev-rows');
   const linha = (rot, txt, cls, src, campo, where) => {
@@ -1160,6 +1131,11 @@ dash.draw('tbody_pisos', (tb) => {
     tr.append('td').text(r.fonte);
   }
 });
+
+/* ---------- abas do topo ---------- */
+document.querySelectorAll('.br-tab').forEach((a) => a.addEventListener('click', () => {
+  document.querySelectorAll('.br-tab').forEach((b) => b.classList.toggle('is-on', b === a));
+}));
 
 </script>
 <script>window.__iniciaDash__();</script>
